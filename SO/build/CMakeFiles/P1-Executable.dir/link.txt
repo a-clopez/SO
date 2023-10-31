@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/P1-Executable.dir/p0.c.o CMakeFiles/P1-Executable.dir/dynamic_list.c.o -o P1-Executable 
