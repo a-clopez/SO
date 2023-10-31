@@ -1,0 +1,125 @@
+WRITE(1)                                          User Commands                                          WRITE(1)
+
+NAME
+       write - send a message to another user
+
+       write user [ttyname]
+
+DESCRIPTION
+       write allows you to communicate with other users, by copying lines from your terminal to theirs.
+
+       When you run the write command, the user you are writing to gets a message of the form:
+
+           Message from yourname@yourhost on yourtty at hh:mm ...
+
+       Any further lines you enter will be copied to the specified user’s terminal. If the other user wants to
+       reply, they must run write as well.
+
+       When you are done, type an end-of-file or interrupt character. The other user will see the message EOF
+       indicating that the conversation is over.
+
+       You can prevent people (other than the superuser) from writing to you with the mesg(1) command. Some
+       commands, for example nroff(1) and pr(1), may automatically disallow writing, so that the output they
+       produce isn’t overwritten.
+
+       If the user you want to write to is logged in on more than one terminal, you can specify which terminal to
+       write to by giving the terminal name as the second operand to the write command. Alternatively, you can
+       let write select one of the terminals - it will pick the one with the shortest idle time. This is so that
+       if the user is logged in at work and also dialed up from home, the message will go to the right place.
+
+       The traditional protocol for writing to someone is that the string -o, either at the end of a line or on a
+       line by itself, means that it’s the other person’s turn to talk. The string oo means that the person
+       believes the conversation to be over.
+
+OPTIONS
+       -V, --version
+           Display version information and exit.
+
+       -h, --help
+           Display help text and exit.
+
+HISTORY
+       A write command appeared in Version 6 AT&T UNIX.
+
+SEE ALSO
+       mesg(1), talk(1), who(1)
+
+REPORTING BUGS
+       For bug reports, use the issue tracker at https://github.com/karelzak/util-linux/issues.
+
+AVAILABILITY
+       The write command is part of the util-linux package which can be downloaded from Linux Kernel Archive
+       <https://www.kernel.org/pub/linux/utils/util-linux/>.
+
+util-linux 2.37.2                                   2021-06-02                                           WRITE(1)
+CAT(1)                                            User Commands                                            CAT(1)
+
+NAME
+       cat - concatenate files and print on the standard output
+
+SYNOPSIS
+       cat [OPTION]... [FILE]...
+
+DESCRIPTION
+       Concatenate FILE(s) to standard output.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       -A, --show-all
+              equivalent to -vET
+
+       -b, --number-nonblank
+              number nonempty output lines, overrides -n
+
+       -e     equivalent to -vE
+
+       -E, --show-ends
+              display $ at end of each line
+
+       -n, --number
+              number all output lines
+
+       -s, --squeeze-blank
+              suppress repeated empty output lines
+
+       -t     equivalent to -vT
+
+       -T, --show-tabs
+              display TAB characters as ^I
+
+       -u     (ignored)
+
+       -v, --show-nonprinting
+              use ^ and M- notation, except for LFD and TAB
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+EXAMPLES
+       cat f - g
+              Output f's contents, then standard input, then g's contents.
+
+       cat    Copy standard input to standard output.
+
+AUTHOR
+       Written by Torbjorn Granlund and Richard M. Stallman.
+
+REPORTING BUGS
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+       Report any translation bugs to <https://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright   ©  2020  Free  Software  Foundation,  Inc.   License  GPLv3+:  GNU  GPL  version  3  or  later
+       <https://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.  There is NO WARRANTY,  to  the  extent
+       permitted by law.
+
+SEE ALSO
+       tac(1)
+
+       Full documentation <https://www.gnu.org/software/coreutils/cat>
+       or available locally via: info '(coreutils) cat invocation'
+
+GNU coreutils 8.32                                February 2022                                            CAT(1)
